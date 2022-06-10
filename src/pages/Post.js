@@ -70,33 +70,37 @@ export const Post = ({ role }) => {
           Array.isArray(posts) &&
           posts.length > 0 &&
           posts.map((post, id) => (
-            <Card sx={{ maxWidth: 400, marginTop: 5 }}>
-              <CardContent onClick={(e) => navigate(`/details/${post.id}`)}>
-                <Typography
-                  sx={{ fontSize: 14 }}
-                  color="text.primary"
-                  gutterBottom
-                >
-                  {post.id} - {post.title}
-                </Typography>
-                <Typography paragraph color="text.secondary">
-                  {post.body}
-                </Typography>
-              </CardContent>
-              {role === "admin" && (
-                <CardActions sx={{ display: "flex", justifyContent: "center" }}>
-                  <Button className="button">
-                    {" "}
-                    <EditIcon
-                      onClick={(e) => navigate(`/edit-post/${post.id}`)}
-                    />
-                  </Button>
-                  <Button className="button">
-                    <Delete onClick={() => deleteHandler(post.id)} />
-                  </Button>
-                </CardActions>
-              )}
-            </Card>
+            <div key={id}>
+              <Card sx={{ maxWidth: 400, marginTop: 5 }}>
+                <CardContent onClick={(e) => navigate(`/details/${post.id}`)}>
+                  <Typography
+                    sx={{ fontSize: 14 }}
+                    color="text.primary"
+                    gutterBottom
+                  >
+                    {post.id} - {post.title}
+                  </Typography>
+                  <Typography paragraph color="text.secondary">
+                    {post.body}
+                  </Typography>
+                </CardContent>
+                {role === "admin" && (
+                  <CardActions
+                    sx={{ display: "flex", justifyContent: "center" }}
+                  >
+                    <Button className="button">
+                      {" "}
+                      <EditIcon
+                        onClick={(e) => navigate(`/edit-post/${post.id}`)}
+                      />
+                    </Button>
+                    <Button className="button">
+                      <Delete onClick={() => deleteHandler(post.id)} />
+                    </Button>
+                  </CardActions>
+                )}
+              </Card>
+            </div>
           ))}
       </List>
     </Paper>

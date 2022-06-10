@@ -71,8 +71,8 @@ export default function Login() {
   const submitdata = () => {
     if (loginValidator()) {
       if (role === "admin") {
-        if (loginData.email === "test@gmail.com") {
-          if (loginData.password === "test") {
+        if (loginData.email === `${process.env.REACT_APP_ADMIN_EMAIL}`) {
+          if (loginData.password === `${process.env.REACT_APP_ADMIN_PWD}`) {
             localStorage.setItem("role", "admin");
             window.location.reload(false);
           } else {
@@ -82,8 +82,8 @@ export default function Login() {
           alert("Please enter registered email");
         }
       } else {
-        if (loginData.email === "test1@gmail.com") {
-          if (loginData.password === "test") {
+        if (loginData.email === `${process.env.REACT_APP_USER_EMAIL}`) {
+          if (loginData.password === `${process.env.REACT_APP_USER_PWD}`) {
             localStorage.setItem("role", "user");
             window.location.reload(false);
           } else {

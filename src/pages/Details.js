@@ -57,20 +57,22 @@ export const Details = ({ role }) => {
             Array.isArray(post) &&
             post.length > 0 &&
             post.map((post, id) => (
-              <Card sx={{ maxWidth: 600, marginTop: 5 }}>
-                <CardContent>
-                  <Typography
-                    sx={{ fontSize: 14 }}
-                    color="text.primary"
-                    gutterBottom
-                  >
-                    {post.id} - {post.title}
-                  </Typography>
-                  <Typography paragraph color="text.secondary">
-                    {post.body}
-                  </Typography>
-                </CardContent>
-              </Card>
+              <div key={id}>
+                <Card sx={{ maxWidth: 600, marginTop: 5 }}>
+                  <CardContent>
+                    <Typography
+                      sx={{ fontSize: 14 }}
+                      color="text.primary"
+                      gutterBottom
+                    >
+                      {post.id} - {post.title}
+                    </Typography>
+                    <Typography paragraph color="text.secondary">
+                      {post.body}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </div>
             ))}
         </List>
         <Comments id={id} role={role} />

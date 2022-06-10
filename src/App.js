@@ -27,7 +27,7 @@ function App() {
       <AppBar position="fixed">
         <Toolbar className={classes.root}>
           <Typography variant="title" color="inherit">
-            JSON Placeholder Post List
+            Socalize@CGC-Assessment
           </Typography>
           {role && (
             <Typography
